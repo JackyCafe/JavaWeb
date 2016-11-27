@@ -16,8 +16,12 @@ import javax.servlet.http.HttpServletResponse;
  * let ==>容器概念 WebContain 會產生一個物件實體，誰要就派一個執行緒去對付他
  * 部署時會看到/hello 
  * 物件永遠繼承自ttpServlet
+ * 如果把@WebServlet("/hello") 改成@WebServlet("III01.php") 則瀏覽器必須跑
+ * http://localhost:8080/JavaWeb/III01.php
+
+
  */
-@WebServlet("/hello")
+@WebServlet("/III01.php")
 public class hello extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
