@@ -1,6 +1,8 @@
 package tw.iii.org;
 
 import java.io.IOException;
+import java.util.Enumeration;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -32,6 +34,9 @@ public class hello extends HttpServlet {
     }
 
     
+    /* 一次性的設定
+     * 屬性的初始化可以做在這邊
+     * */
     @Override
     public void init() throws ServletException {
      	System.out.println("init");
@@ -39,14 +44,40 @@ public class hello extends HttpServlet {
     }
 	
     /*  如果調整 不使用父類別的 service 方法時，生命週期不會進入doGet()方法
-     * 
+     *  用request.getParamter接受參數．
+     *  在Service 中沒有特別限制get or post 
+     *  Service 的父類別 中把路拆開 Post的可以跑doPost get的doGet
      * */
     @Override
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
  		System.out.println("Service()");
+ 		
+ 		
+ 		try {
+ 		HttpServletRequest req = (HttpServletRequest) request;
+ 		String method =req.getMethod();
+ 		System.out.println(method);
+ 		System.out.println("Cast ok");
+ 		}catch(ClassCastException ce)
+ 		{
+ 			System.out.println(ce.toString());
+ 		}
+ 		
 //		super.service(request, response);
- 		String key1 = request.getParameter("key1");
- 		System.out.println("key " + key1);
+// 		String key1 = request.getParameter("key1");
+// 		System.out.println("key " + key1);
+
+ 		
+ 		Enumeration<String> ps = request.getParameterNames();
+ 		while (ps.hasMoreElements())
+ 		{
+ 			String item = ps.nextElement();
+ 			String value = request.getParameter(item);
+ 			System.out.println(item +"---->"+value);
+ 		}
+ 		
+ 		
+ 		
     }
     
     
