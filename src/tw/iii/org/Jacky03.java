@@ -32,7 +32,7 @@ public class Jacky03 extends HttpServlet {
 	   {
 	   case 1 : result =String.valueOf(x+y); break;
 	   case 2: result = String.valueOf(x-y); break;
-	   case 3 : result = String.valueOf(x*y); break;
+	   case 3 : result = String.valueOf(x*y); break ;
 	   case 4 : result = String.valueOf(x/y)+"......"+String.valueOf(x%y);    break;
 	   
 	   }
