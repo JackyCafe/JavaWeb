@@ -1,6 +1,7 @@
 package tw.iii.org;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
@@ -42,7 +43,13 @@ public class Jacky01 extends HttpServlet {
 			System.out.println(info);
 		}
 		
-		
+	try {	
+	 PrintWriter out = response.getWriter();
+	 out.write("Hello Jacky01");
+	 out.flush();
+	 out.close();
+	}catch(Exception ce)
+	{}
 	}
 	
 }
