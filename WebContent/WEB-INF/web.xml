@@ -15,23 +15,71 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-  version="3.1"
-  metadata-complete="true">
-
-  
-  
-  <!-- 3.0 以後可以在@WebServlet -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" metadata-complete="true" version="3.1">
   <servlet>
-  	<servlet-name>uptoyou</servlet-name>  <!-- servlet 名稱隨便你 -->
-  	<servlet-class>tw.iii.org.Jacky04</servlet-class> <!-- servlet 類別 -->
+    <servlet-name>uptoyou</servlet-name>
+    <servlet-class>tw.iii.org.Jacky04</servlet-class>
   </servlet>
-  <servlet-mapping>  <!-- mapping 到ＵＲＬ的位置 -->
-   	<servlet-name>uptoyou</servlet-name><!-- 跟上面的一樣 -->
-   	<url-pattern>/Jacky04.go</url-pattern><!-- ＵＲＬ上呈現的網址 -->
+  <servlet-mapping>
+    <servlet-name>uptoyou</servlet-name>
+    <url-pattern>/Jacky04.go</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <servlet-name>getFilename</servlet-name>
+    <servlet-class>tw.iii.org.Jacky05</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getFilename</servlet-name>
+    <url-pattern>/Jacky05</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>upload</servlet-name>
+    <servlet-class>tw.iii.org.Jacky07</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>upload</servlet-name>
+    <url-pattern>/Jacky07</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>upload08</servlet-name>
+    <servlet-class>tw.iii.org.Jacky08</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>upload08</servlet-name>
+    <url-pattern>/Jacky08</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>upload09</servlet-name>
+    <servlet-class>tw.iii.org.Jacky09</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>upload09</servlet-name>
+    <url-pattern>/Jacky09</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>upload10</servlet-name>
+    <servlet-class>tw.iii.org.Jacky10</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>upload10</servlet-name>
+    <url-pattern>/Jacky10</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>upload11</servlet-name>
+    <servlet-class>tw.iii.org.Jacky11</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>upload11</servlet-name>
+    <url-pattern>/Jacky11</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <context-param>
+    <description>檔案上傳目錄</description>
+    <param-name>upload-path</param-name>
+    <param-value>/Users/hungming/Documents/workspace/JavaWeb/WebContent/upload</param-value>
+  </context-param>
 </web-app>
