@@ -80,7 +80,6 @@
     <servlet-name>upload12</servlet-name>
     <url-pattern>/Jacky12</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>upload13</servlet-name>
     <servlet-class>tw.iii.org.Jacky13</servlet-class>
@@ -89,7 +88,6 @@
     <servlet-name>upload13</servlet-name>
     <url-pattern>/Jacky13</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>upload14</servlet-name>
     <servlet-class>tw.iii.org.Jacky14</servlet-class>
@@ -98,19 +96,39 @@
     <servlet-name>upload14</servlet-name>
     <url-pattern>/Jacky14</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>JDBC</servlet-name>
+    <servlet-class>tw.iii.org.Jacky15</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JDBC</servlet-name>
+    <url-pattern>/Jacky15</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShowTable</servlet-name>
+    <servlet-class>tw.iii.org.Jacky16</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowTable</servlet-name>
+    <url-pattern>/Jacky16</url-pattern>
+  </servlet-mapping>
   
-  
-  
+  <servlet>
+    <servlet-name>EditTable</servlet-name>
+    <servlet-class>tw.iii.org.Jacky17</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditTable</servlet-name>
+    <url-pattern>/Jacky17</url-pattern>
+  </servlet-mapping>
   <context-param>
     <description>檔案上傳目錄</description>
     <param-name>upload-path</param-name>
     <param-value>/Users/hungming/Documents/workspace/JavaWeb/WebContent/upload</param-value>
   </context-param>
-  
-    <context-param>
+  <context-param>
     <description>Template</description>
     <param-name>template-path</param-name>
     <param-value>/Users/hungming/Documents/workspace/JavaWeb/WebContent/template</param-value>
   </context-param>
-  
 </web-app>
