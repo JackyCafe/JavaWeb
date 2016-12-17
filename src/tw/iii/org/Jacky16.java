@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import com.mysql.jdbc.ResultSetMetaData;
 
  
@@ -46,29 +48,49 @@ public class Jacky16 extends HttpServlet {
 			prop.setProperty("password", "root");
 			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/iii", prop);
 			Statement stmt = conn.createStatement();
+// 
 			// stmt.executeUpdate("Insert into member(account,passwd,realname)
 			// values('Jacky','123','Jacky')");
 
 		} catch (Exception ex) {
-			// handle the error
-			System.out.println("error");
+			for (StackTraceElement s: ex.getStackTrace()) {
+				System.out.println("error"+s.getLineNumber());
+				System.out.println("error"+s.getMethodName());
+				System.out.println("error"+s.toString());
+			}
 		}
 
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html charset=utf-8");
+		doLogin(request, response);
+	}
+	
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doLogin(request, response);
+
+	}
+
+	private void doLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+ 		response.setContentType("text/html;charset=utf8");
+
+		request.setCharacterEncoding("utf8");
+ 
+		
 		out = response.getWriter();
 		String type = request.getParameter("type");
 		String delId = request.getParameter("delId");
 		String editId = request.getParameter("editId");
-		out.println("add:" + type);
+		out.println("add:" + type +"<br/>");
 		if (type != null && type.equals("add")) {
 			String account = request.getParameter("account");
-			String passwd = request.getParameter("passwd");
+			String passwd = BCrypt.hashpw(request.getParameter("passwd") , BCrypt.gensalt());
 			String realname = request.getParameter("realname");
-			out.print(account + ":" + passwd + ":" + realname);
+			out.print("iii:"+ account + ":" + passwd + ":" + realname);
 			addData(account, passwd, realname);
 		} else if (delId != null) {
 			delData(delId);
@@ -81,9 +103,10 @@ public class Jacky16 extends HttpServlet {
 			editData(account, passwd, realname, updateid);
 		}
 		outHTML(queryData());
-
+		
 	}
-
+	
+	
 	private void editData(String account, String passwd, String realname, String updateid) {
 		try {
 			out.println(account + ":" + passwd + ":" + realname);
@@ -116,11 +139,14 @@ public class Jacky16 extends HttpServlet {
 
 	private void addData(String account, String passwd, String realname) {
 		try {
-			PreparedStatement pstmt = conn
+			PreparedStatement pstmt = conn					
+//					.prepareStatement("insert into member(account,passwd,realname)" + "values('111','222','中文')");
+
 					.prepareStatement("insert into member(account,passwd,realname)" + "values(?,?,?)");
-			pstmt.setString(1, account);
-			pstmt.setString(2, passwd);
-			pstmt.setString(3, realname);
+				pstmt.setString(1, account);
+				pstmt.setString(2, passwd);
+				pstmt.setString(3, realname);
+			
 			pstmt.execute();
 
 		} catch (SQLException e) {
@@ -189,9 +215,6 @@ public class Jacky16 extends HttpServlet {
 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 
-	}
 
 }

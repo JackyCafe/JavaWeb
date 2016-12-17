@@ -112,15 +112,121 @@
     <servlet-name>ShowTable</servlet-name>
     <url-pattern>/Jacky16</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>EditTable</servlet-name>
     <servlet-class>tw.iii.org.Jacky17</servlet-class>
   </servlet>
   <servlet-mapping>
+      <servlet-name>checkPw</servlet-name>
+    <url-pattern>/Jacky18</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>checkPw</servlet-name>
+    <servlet-class>tw.iii.org.Jacky18</servlet-class>
+  </servlet>
+  <servlet-mapping>
     <servlet-name>EditTable</servlet-name>
     <url-pattern>/Jacky17</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Json</servlet-name>
+    <servlet-class>tw.iii.org.Jacky20</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Json</servlet-name>
+    <url-pattern>/Jacky20</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Image</servlet-name>
+    <servlet-class>tw.iii.org.Jacky21</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Image</servlet-name>
+    <url-pattern>/Jacky21</url-pattern>
+  </servlet-mapping>
+   
+   <servlet>
+    <servlet-name>Image2</servlet-name>
+    <servlet-class>tw.iii.org.Jacky24</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Image2</servlet-name>
+    <url-pattern>/Jacky24</url-pattern>
+  </servlet-mapping>
+ 
+ 
+ 
+  <servlet-mapping>
+    <servlet-name>Cookie</servlet-name>
+    <url-pattern>/Jacky26</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Cookie</servlet-name>
+    <servlet-class>tw.iii.org.Jacky26</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Cookie2</servlet-name>
+    <url-pattern>/Jacky27</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Cookie2</servlet-name>
+    <servlet-class>tw.iii.org.Jacky27</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Cookie3</servlet-name>
+    <url-pattern>/Jacky28</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Cookie3</servlet-name>
+    <servlet-class>tw.iii.org.Jacky28</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+    <url-pattern>/Jacky35</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Logout</servlet-name>
+    <servlet-class>tw.iii.org.Jacky35</servlet-class>
+  </servlet> 
+ 
+  <servlet-mapping>
+    <servlet-name>Session1</servlet-name>
+    <url-pattern>/Jacky32</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Session1</servlet-name>
+    <servlet-class>tw.iii.org.Jacky32</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>Session2</servlet-name>
+    <url-pattern>/Jacky33</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Session2</servlet-name>
+    <servlet-class>tw.iii.org.Jacky33</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>Session3</servlet-name>
+    <url-pattern>/Jacky34</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Session3</servlet-name>
+    <servlet-class>tw.iii.org.Jacky34</servlet-class>
+  </servlet>
+ 
+ 
+ 
+  <servlet-mapping>
+    <servlet-name>Cookie4</servlet-name>
+    <url-pattern>/Jacky30</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Cookie4</servlet-name>
+    <servlet-class>tw.iii.org.Jacky30</servlet-class>
+  </servlet>
   <context-param>
     <description>檔案上傳目錄</description>
     <param-name>upload-path</param-name>
@@ -130,5 +236,10 @@
     <description>Template</description>
     <param-name>template-path</param-name>
     <param-value>/Users/hungming/Documents/workspace/JavaWeb/WebContent/template</param-value>
+  </context-param>
+  <context-param>
+    <description>Template</description>
+    <param-name>img-path</param-name>
+    <param-value>/Users/hungming/Documents/workspace/JavaWeb/WebContent/imgs</param-value>
   </context-param>
 </web-app>

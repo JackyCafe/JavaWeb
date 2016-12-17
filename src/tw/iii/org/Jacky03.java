@@ -23,18 +23,19 @@ public class Jacky03 extends HttpServlet {
 	    //doInput Module 處理運算
  	 int  x=0, y=0 ;
  	 String	result = "";
- 	 int  select;
+ 	 int  op = 0;
  	 try{
 	   x = Integer.parseInt(request.getParameter("x"));
 	   y = Integer.parseInt(request.getParameter("y"));
-	   select =  Integer.parseInt(request.getParameter("select"));
-	   switch(select)
+	   op =  Integer.parseInt(request.getParameter("select"));
+	   switch(op)
 	   {
+	   
 	   case 1 : result =String.valueOf(x+y); break;
 	   case 2: result = String.valueOf(x-y); break;
 	   case 3 : result = String.valueOf(x*y); break ;
 	   case 4 : result = String.valueOf(x/y)+"......"+String.valueOf(x%y);    break;
-	   
+	    
 	   }
   	 }catch(Exception e) {}
 		
@@ -45,10 +46,10 @@ public class Jacky03 extends HttpServlet {
  		out.println("<form>");
  		out.println("<input type = 'text' name = 'x' value ='"+ x +"'>");
  		out.print("<select name='select'>");
- 		out.print("<option  value='1'> + </option>");
- 		out.print("<option value='2'> - </option>");
- 		out.print("<option value='3'> x </option>");
- 		out.print("<option value='4'> / </option>");
+ 		out.print("<option  value='1'>"+(op==1?"selected":"")+" + </option>");
+ 		out.print("<option value='2'> "+(op==2?"selected":"")+"- </option>");
+ 		out.print("<option value='3' "+(op==3?"selected":"")+"> x </option>");
+ 		out.print("<option value='4'>"+(op==4?"selected":"")+" / </option>");
   		out.print("</select >");
  		
  		out.println("<input type = 'text' name = 'y'  value = '"+y+"'>");

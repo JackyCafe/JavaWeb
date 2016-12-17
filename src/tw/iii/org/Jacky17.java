@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Properties;
 
@@ -36,6 +37,8 @@ public class Jacky17 extends HttpServlet {
 			prop.setProperty("user", "root");
 			prop.setProperty("password", "root");
 			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/iii", prop);
+			Statement stmt = conn.createStatement();
+			stmt.execute("SET NAME UTF-8");
 			System.out.println("ok");
 
 		} catch (ClassNotFoundException e) {
@@ -71,8 +74,7 @@ public class Jacky17 extends HttpServlet {
 			ResultSet rs = pstmt.executeQuery();
 			rs.first();
 
-			row.put("id", rs.getString("id"));
-			row.put("account", rs.getString("account"));
+ 			row.put("account", rs.getString("account"));
 			row.put("passwd", rs.getString("passwd"));
 			row.put("realname", rs.getString("realname"));
 			out.println(rs.getString("id") + ":" + rs.getString("passwd") + ":" + rs.getString("realname"));
