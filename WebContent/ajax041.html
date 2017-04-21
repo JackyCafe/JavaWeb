@@ -1,0 +1,34 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+ 	function test1()
+	{
+		$.ajax({
+			url:'http://opendata.cwb.gov.tw/opendata/DIV2/O-A0001-001.xml',
+			type:'get',
+			dataType:'xml',
+			crossDomain:true,
+			success:doSuccess,
+			error:doError
+		});
+	}
+		
+	function doSuccess(mesg){
+		$('#success').html(mesg)
+		 		 
+
+ 	}	
+		
+	function doError(mesg){
+		$('#error').html(mesg)
+	}	
+ 
+		
+</script>    
+<input type='button' id='mybtn' value = 'ok'   onclick="test1()" />
+<div id='here'>...</div>
+<span id='success'>...</span><br>
+<span id='error'>...</span><br>
+ <hr>
+<span id='mget'>...</span><br>
+<table id='table' width='100%' border='1'></table>

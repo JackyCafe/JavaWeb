@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Jacky05")
 public class Jacky05 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	PrintWriter out =null;   
    	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	 }
 
@@ -23,14 +23,14 @@ public class Jacky05 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	  response.setContentType("text/html;charset=utf-8");
 	  
-	  PrintWriter out = response.getWriter();
+	  out = response.getWriter();
 	  String username = request.getParameter("username");
 	  out.print(username);
 	  String type = request.getContentType();
       int len = request.getContentLength();
       out.println(type+"  <br> "+len +"<br/>");
       InputStream in  = request.getInputStream();
-      InputStreamReader reader = new InputStreamReader(in);
+      InputStreamReader reader = new InputStreamReader(in,"utf-8");
       int line ;
       byte[] buf =new byte[len];
       in.read(buf);
@@ -60,8 +60,13 @@ public class Jacky05 extends HttpServlet {
 		String filename;
 		int beginIndex = body.indexOf("filename=\"");
 		String temp =body.substring(beginIndex+10);
-		System.out.println(temp);
+		out.println("<br>");
+		out.println(temp);
 		String temp2 = body.substring(0,temp.indexOf("\""));
+		out.println("<br>");
+
+		out.println(temp2);
+
 		return temp2;
 		
 	}

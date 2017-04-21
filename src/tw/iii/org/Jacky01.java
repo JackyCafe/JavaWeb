@@ -19,11 +19,17 @@ import javax.servlet.http.HttpServletResponse;
 public class Jacky01 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
- 
+   @Override
+   protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
+		System.out.println("service");
+		super.service(arg0, arg1);
+		System.out.println("service1");
+
+}
 	 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doGet");
-		doTask(request,response);
+		//doTask(request,response);
 	}
 
 	/**
@@ -31,7 +37,7 @@ public class Jacky01 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doPost");
-		doTask(request,response);
+		//doTask(request,response);
 
 	}
 

@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Jacky Big Company</title>
+</head>
+<body>
+	Try Catch <br>
+	如有不能轉型的例外，errMesg捕捉
+	c： out 以 ＥＬ捕捉
+	<hr>
+	<c:catch var ="errMesg">
+		<%
+			String num = request.getParameter("n");
+			int n = Integer.parseInt(num);
+			out.print(n);
+		%>
+	</c:catch>
+	<c:out value="${errMesg }"></c:out>
+</body>
+</html>

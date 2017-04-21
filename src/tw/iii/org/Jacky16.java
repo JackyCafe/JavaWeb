@@ -46,7 +46,7 @@ public class Jacky16 extends HttpServlet {
 			Properties prop = new Properties();
 			prop.setProperty("user", "root");
 			prop.setProperty("password", "root");
-			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/iii", prop);
+			conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/iii?unicode=true&characterEncoding=UTF-8", prop);
 			Statement stmt = conn.createStatement();
 // 
 			// stmt.executeUpdate("Insert into member(account,passwd,realname)

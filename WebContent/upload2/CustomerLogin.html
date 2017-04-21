@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="../jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="../jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!--<script src="jquery3.1.1.js"></script>-->
+<script type="text/javascript">
+	var xhttp = new XMLHttpRequest()
+	checkpwd = function() {
+		$('#txtPwdText2').blur(function() {
+			var pwd = $('#txtPwdText').val()
+			var pwd2 = $('#txtPwdText2').val()
+			if (pwd != pwd2) {
+				alert('密碼不同');
+			}
+		})
+	}
+
+	checklong = function() {
+		$('#txtPwdText').blur(function() {
+			var pwd = $('#txtPwdText').val()
+			if (pwd.length < 10) {
+				alert('長度不足');
+			}
+		}
+
+		)
+	}
+
+	checkProd = function() {
+		$('#txtProdText')
+				.blur(
+						function() {
+
+							var newid = document.getElementById('txtProdText').value;
+
+							$
+									.ajax({
+										url : 'http://localhost:8080/JackyWeb/redLine/CheckId.jsp?txtProdText='
+												+ newid,
+										type : 'get',
+										success : doSuccess,
+										error : doError
+									});
+
+						});
+	}
+	function doSuccess(json) {
+		$('#here4').html(json);
+	}
+
+	function doError(json) {
+		$('#here4').html(json);
+	}
+
+	$(document).ready(function() {
+		//checklong();
+		checkpwd();
+		checkProd();
+	}
+
+	);//end of ready
+
+	function checkId() {
+		var newid = document.getElementById('txtNameText').value;
+		var here = document.getElementById('here')
+
+		xhttp.open('GET', 'CheckId.jsp?txtNameText=' + newid, true); //true 為非同步
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var here = document.getElementById('here')
+				here.innerHTML = this.responseText;
+			}
+		}
+
+		xhttp.send();
+	}
+
+	var pwd = $('#txtPwdText').value;
+</script>
+
+<title>Jacky Big Company</title>
+</head>
+<body>
+	<div data-role="page">
+		<div data-role="content">
+			<form action="CusLogin.jsp" method='post'>
+				<div data-role="fieldcontain">
+					<label for="txtNameText">請輸入帳號資料</label> <input type="text"
+						name="txtNameText" id="txtNameText" value="" placeholder="請輸入帳號"
+						onblur="checkId()" />
+					<div id='here' float="left"></div>
+
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="txtPwdText"> 請輸入帳號密碼 </label> <input type="password"
+						name="txtPwdText" id="txtPwdText" value="" placeholder="請輸入密碼" /><br>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="txtPwdText2">請再輸入帳號密碼</label> <input type="password"
+						name="txtPwdText2" id="txtPwdText2" value="" placeholder="請再輸入密碼" /><br>
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="txtEmailText"> email: </label> <input type="text"
+						name="txtEmailText" id="txtEmailText" value="" placeholder="email" /><br>
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="txtAddressText"> 地址:</label> <input type="text"
+						name="txtAddressText" id="txtAddressText" value=""
+						placeholder="Address" /><br>
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="txtBirthText"> birthday : </label> <input type="text"
+						name="txtBirthText" id="txtBirthText" value=""
+						placeholder="Address" /><br>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="txtProdText"> Product Name :</label> <input type="text"
+						name="txtProdText" id="txtProdText" value="" placeholder="產品名稱" />
+					<div id='here4' float="left">...</div>
+					<br>
+
+					<div data-role="fieldcontain">
+						<label for="txtTelText"> 電話 : </label><input type="text"
+							name="txtTelText" id="txtTelText" value=""
+							placeholder=" (02) 123456789" /><br>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="txtMobileText"> 行動電話 :</label> <input type="text"
+							name="txtMobileText" id="txtMobileText" value=""
+							placeholder=" (09XX) 123456789" /><br>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="rdoStyle"> </label>
+						<fieldset data-role="controlgroup">
+							<legend>選擇版型 : </legend>
+							<input type="radio" name="rdoStyle" id="rdoPet0" value="0"
+								checked="checked" /> <label for="rdoPet0">標準版</label> <input
+								type="radio" name="rdoStyle" id="rdoPet1" value="1" /> <label
+								for="rdoPet1">四分格</label> <input type="radio" name="rdoStyle"
+								id="rdoPet2" value="2" /> <label for="rdoPet2">9宮格</label>
+
+						</fieldset>
+
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+								<input type="submit" name="btnOK" value="OK" />
+							</div>
+
+						</div>
+			</form>
+
+
+
+
+		</div>
+		<!-- page content -->
+	</div>
+	<!-- page -->
+
+
+
+</body>
+</html>

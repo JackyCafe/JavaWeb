@@ -1,0 +1,50 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+$(document).ready(
+		function ()
+		{
+			$("#mybtn").click(
+				function(){
+					
+					$("#here").load("Jacky96.jsp"
+							 //callback
+							,function(responseText,status,xhttp){
+								if(status=='success') {
+									$('#rt').html(responseText);
+									$('#ss').html(status);
+									}else
+									{alert(status)}
+							
+
+					}
+					);
+ 				}		
+			); // mybtn.click
+			
+			$('#myget').click(
+					function(){
+						$.get("Jacky96.jsp"),function(responseText,status,xhttp){
+							if(status=='success') {
+								$('#mget').html(responseText);
+ 								}else
+								{alert(status)}
+						
+						}
+				}
+			);
+			
+			
+			
+			
+		}
+		
+		);
+		
+</script>    
+<input type='button' id='mybtn' value = 'ok' />
+<div id='here'>...</div>
+<span id='rt'>...</span><br>
+<span id='ss'>...</span><br>
+<input type='button' id='myget' value = 'get' />
+<hr>
+<span id='mget'>...</span><br>

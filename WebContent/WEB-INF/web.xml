@@ -16,7 +16,15 @@
   limitations under the License.
 -->
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" metadata-complete="true" version="3.1">
-  <servlet>
+ <servlet>
+    <servlet-name>Jacky01</servlet-name>
+    <servlet-class>tw.iii.org.Jacky01</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jacky01</servlet-name>
+    <url-pattern>/Jacky01</url-pattern>
+  </servlet-mapping>
+   <servlet>
     <servlet-name>uptoyou</servlet-name>
     <servlet-class>tw.iii.org.Jacky04</servlet-class>
   </servlet>

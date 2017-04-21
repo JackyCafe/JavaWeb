@@ -24,7 +24,7 @@ public class Jacky07 extends HttpServlet {
      		  Part part = request.getPart("upload");
      		  String header = part.getHeader("Content-Disposition");
       		  out.println(header+"<br>");
-      		  //Mac 只會抓到檔名，Windows 
+      		  //Mac 只會抓到檔名，Windows會含路徑
      		  String filename = part.getSubmittedFileName(); 
      		  String type = part.getContentType();
      		  String name = part.getName();

@@ -1,0 +1,55 @@
+<script>
+    //簡單一行程式碼便可以建立一個XMLHttpRequest物件。
+	var xhttp = new XMLHttpRequest()
+ 
+    function test1(){
+	var newid = document.getElementById('id').value;
+
+      xhttp.open('GET','Jacky95.jsp?id='+newid,true); //true 為非同步
+      //call back
+      xhttp.onreadystatechange  = function(){
+    	  //	readyState == 0 初始化
+    	  //	readyState == 1 與後端連線
+    	  //	readyState == 2 後端接受要求
+    	  //	readyState == 3 處理要求
+    	  //	readyState == 4 完成
+    	  
+    	  if(this.readyState == 4 && this.status == 200 ){
+    	  var here = document.getElementById('here')
+    	  here.innerHTML=this.responseText;
+    	  }
+       }
+      xhttp.send();
+      
+    }
+    
+    function test2()
+    {
+    	//setInterval( function(){ test1() }, 1000);
+    	  var1 = setInterval(  test1, 1000);
+    }
+    
+    function test3()
+    {
+    	//setInterval( function(){ test1() }, 1000);
+    	  clearInterval(var1);
+    }
+    
+    
+</script>
+<h1>Jacky Big Company</h1>
+<hr/>
+<select id = 'id'>
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+	<option>4</option>
+	
+	
+
+</select>
+<input type='button' value='Start' onClick="test2()" />
+ 
+<div id='here'>...</div>
+<hr>
+Hello ,world
